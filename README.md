@@ -29,5 +29,10 @@ python3 -m pip install -r requirements.txt
 python3 -m behave
 ```
 
+### Desactivar entorno virtual
+```
+deactivate
+```
+
 ## Referencias
 https://www.techbeamers.com/navigation/
