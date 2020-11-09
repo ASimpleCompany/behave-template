@@ -1,8 +1,6 @@
 # ICAPlanilla - Tests
 Este repositorio desarrolla pruebas automatizadas mediante el uso del lenguaje `Python`, a través `Behave` como herramiente de BDD (Behavior Driven Development), además de `Gherkin` como lenguaje de definición de casos de prueba, y `Selenium` como automatizador de Navegadores Web. 
 
-**Nota:** *Toda la arquitectura del programa se encuentra dockerizada.*
-
 ## Guía de Inicio Rápido
 
 ### Definir las variables de entorno 
