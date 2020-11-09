@@ -5,7 +5,7 @@ Este repositorio desarrolla pruebas automatizadas mediante el uso del lenguaje `
 
 ## Guía de Inicio Rápido
 
-### Define las variables de entorno 
+### Definir las variables de entorno 
 
 Crea un archivo .env basado en el archivo de referencia dentro del repositorio llamado .env.example. Luego de esto, para arrancar el proyecto ejecuta los siguientes pasos:
 
