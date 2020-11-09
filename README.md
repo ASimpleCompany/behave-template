@@ -7,16 +7,26 @@ Este repositorio desarrolla pruebas automatizadas mediante el uso del lenguaje `
 
 ### Define las variables de entorno 
 
-Crea un archivo .env basado en el archivo de referencia dentro del repositorio llamado .env.example. Luego de esto, para construir el contenedor ejecuta los siguientes pasos:
+Crea un archivo .env basado en el archivo de referencia dentro del repositorio llamado .env.example. Luego de esto, para arrancar el proyecto ejecuta los siguientes pasos:
 
-### Build
+### Crear entorno virtual
 ```
-./scripts/docker_build.sh
+python3 -m venv .venv
 ```
 
-### Run
+### Activar entorno virtual
 ```
-./scripts/docker_run.sh
+source .venv/bin/activate
+```
+
+### Instalar dependencias dentro del entorno virtual
+```
+python3 -m pip install -r requirements.txt
+```
+
+### Ejecutar Proyecto
+```
+python3 -m behave
 ```
 
 ## Referencias
