@@ -21,22 +21,14 @@ def step(context, site):
 
 @when('se accede a la pagina principal')
 def step(context):
+    # Select Elements from DOM
+    username = context.driver.find_element_by_xpath("//input[@name='username']")
+    password = context.driver.find_element_by_xpath("//input[@name='password']")
+    button = context.driver.find_element_by_css_selector('.btn.btn-block.btn-primary.btn-lg.font-weight-medium.auth-form-btn')
 
-    #SECRET_KEY = os.getenv('SECRET_00')
-
-    box = context.driver.find_element_by_xpath(
-        '//*[@id="root"]/div/div/div/div/div/div/div/div/div/form/div[1]/input')
-    #box.send_keys('{}'.format(SECRET_KEY))
-    box.send_keys('{}'.format('joshua'))
-
-    #SECRET_KEY = os.getenv('SECRET_10')
-    box = context.driver.find_element_by_xpath(
-        '//*[@id="root"]/div/div/div/div/div/div/div/div/div/form/div[2]/input')
-    #box.send_keys('{}'.format(SECRET_KEY))
-    box.send_keys('{}'.format(12345678))
-
-    button = context.driver.find_element_by_xpath(
-        '//*[@id="root"]/div/div/div/div/div/div/div/div/div/form/div[3]/button')
+    # Fill out the log in form 
+    username.send_keys('{}'.format('joshua'))
+    password.send_keys('{}'.format(12345678))
     button.click()
 
     delay = 10  # seconds
@@ -45,5 +37,17 @@ def step(context):
             EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[1]/h2')))
     except TimeoutException:
         print('timeout !')
+    pass
 
+
+@when('se muestra la pantalla de "{view}"')
+def step(context):
+
+
+    delay = 10  # seconds
+    try:
+        h1_title = WebDriverWait(context.driver, delay).until(
+            EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[1]/h2')))
+    except TimeoutException:
+        print('timeout !')
     pass
