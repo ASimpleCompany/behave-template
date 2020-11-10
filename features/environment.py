@@ -3,7 +3,9 @@ from platform import system
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
-
+#os = Variable que contiene el nombre del sistema operativo
+#referencias: https://stackoverflow.com/questions/1854/python-what-os-am-i-running-on
+  
 def before_all(context):
     os = system()
     chromeOptions = Options()    
