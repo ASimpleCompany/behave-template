@@ -1,14 +1,21 @@
 from selenium import webdriver
+from platform import system
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
 
 def before_all(context):
-    chromeOptions = Options()
-    # chromeOptions.headless = False
-    chromeOptions.headless = True
-    context.driver = webdriver.Chrome(ChromeDriverManager().install())
-    # context.driver = webdriver.Chrome(executable_path='./chromedriver',chrome_options=chromeOptions)
+    os = system()
+    chromeOptions = Options()    
+    chromeOptions.headless = False
+    #chromeOptions.headless = True
+
+    if os == 'Linux':
+        context.driver = webdriver.Chrome(executable_path='./chromedriver',chrome_options=chromeOptions)
+
+    if os == 'Darwin':
+        context.driver = webdriver.Chrome(ChromeDriverManager().install())      
+        
     context.driver.implicitly_wait(10)
 
 
