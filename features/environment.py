@@ -1,7 +1,8 @@
-from selenium import webdriver
 from platform import system
-from webdriver_manager.chrome import ChromeDriverManager
+
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 #os = Variable que contiene el nombre del sistema operativo
 #referencias: https://stackoverflow.com/questions/1854/python-what-os-am-i-running-on
