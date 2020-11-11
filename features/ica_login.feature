@@ -6,3 +6,4 @@ Feature: Modulo de Reportes
   Scenario: Validar la generación de reportes
     Given se navega a "http://www.icaplanilla.com/login"
     When se accede a la pagina principal
+    And se navega a la pantalla de reportes
