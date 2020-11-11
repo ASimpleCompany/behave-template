@@ -16,11 +16,14 @@ def step(context, site):
 @when('se accede a la pagina principal')
 def step(context):
     # Select Elements from DOM
-    username = context.driver.find_element_by_xpath("//input[@name='username']")
-    password = context.driver.find_element_by_xpath("//input[@name='password']")
-    button = context.driver.find_element_by_css_selector('.btn.btn-block.btn-primary.btn-lg.font-weight-medium.auth-form-btn')
+    username = context.driver.find_element_by_xpath(
+        "//input[@name='username']")
+    password = context.driver.find_element_by_xpath(
+        "//input[@name='password']")
+    button = context.driver.find_element_by_css_selector(
+        '.btn.btn-block.btn-primary.btn-lg.font-weight-medium.auth-form-btn')
 
-    # Fill out the log in form 
+    # Fill out the log in form
     username.send_keys('{}'.format('joshua'))
     password.send_keys('{}'.format(12345678))
     button.click()
@@ -28,10 +31,8 @@ def step(context):
     delay = 10  # seconds
     h1_title = WebDriverWait(context.driver, delay).until(
         EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[1]/h2')))
-    
+
     assert h1_title
-
-
 
 
 @when('se navega a la pantalla de reportes')
@@ -39,7 +40,7 @@ def step(context):
     delay = 10  # seconds
 
     button = WebDriverWait(context.driver, delay).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/nav/div/ul[1]/li[3]/a/span')))    
+        EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/nav/div/ul[1]/li[3]/a/span')))
     button.click()
 
     button = WebDriverWait(context.driver, delay).until(
@@ -47,11 +48,16 @@ def step(context):
     button.click()
 
     button = WebDriverWait(context.driver, delay).until(
-    EC.presence_of_element_located((By.XPATH, '//*[@id="sidebar"]/ul/li[4]/ul/li[2]/a')))
+        EC.presence_of_element_located((By.XPATH, '//*[@id="sidebar"]/ul/li[4]/ul/li[2]/a')))
     button.click()
 
+
+@then('se espera poder generar el reporte')
+def step(context):
+    delay = 10  # seconds
+
     button = WebDriverWait(context.driver, delay).until(
-    EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[2]/div/div/div/div/div[5]/table/tbody/tr[1]/td[6]/div/button')))
+        EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[2]/div/div/div/div/div[5]/table/tbody/tr[1]/td[6]/div/button')))
     button.click()
 
     # Wait for 5 seconds
