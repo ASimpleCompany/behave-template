@@ -4,11 +4,18 @@ on: [push]
 
 jobs:
 
-  build:
+  ci:
 
     runs-on: ubuntu-latest    
 
     steps:
     - uses: actions/checkout@v1
-    - name: Ejecutar pruebas
-      run: bash entrypoint.sh
+
+    - name: Setup ...
+      run: CONTAINER_NAME=behave
+
+    - name: Building image ...
+      run: docker build -t $CONTAINER_NAME  .
+
+    - name: Run ...
+      run: docker container run $CONTAINER_NAME behave
