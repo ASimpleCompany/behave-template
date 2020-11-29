@@ -1,0 +1,185 @@
+doctype html
+head
+meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+style.
+	* {
+	margin: 0;
+	padding: 0;
+	}
+	p{
+		margin-bottom:3px;
+	}
+	html, body {
+	font-weight: 500;
+	font-size:11px;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+	.center{
+	text-align: center;
+	color:#262626;
+	}
+	.right{
+	text-align: right;
+	}	
+	h4{
+	font-size:16px;
+	margin-bottom:5px;
+	}
+	h5{
+	font-size:14px;
+	margin-bottom:5px;
+	}
+
+	.strong {
+	font-weight: bold;
+	}
+	.float{
+	margin:3px;
+	float:left;
+	position: relative;
+	}
+	.col-3{
+		width:33%;
+	}
+	.col-12{
+		width:100%;
+	}
+	.col-6{
+		width:48%;
+	}
+	.ground{
+		background-color:#f2f2f2;
+	}
+	.container{
+	width:100%;clear: both; display: table; 
+	}
+	table, td, th {  
+	border: 1px solid #ddd;
+	text-align: left;
+	}
+	table {
+	border-collapse: collapse;
+
+	}
+	th, td {
+	padding: 3px;
+	}
+	.mt-1{
+		margin-top:20px;
+	}
+	img{
+		position:absolute;
+		top:0;
+		left:3px;
+		width:70px;
+	}
+div
+h4.center Instituto de Ciencias Aplicadas
+h5.center  #{planilla.planilla}
+img(src="https://institutodecienciasaplicadas.com/wp-content/uploads/2019/10/escudo-principal-200x193.png",class='img')
+div
+	br
+	br
+	br
+	div.container
+		div.float.col-6
+			|
+			span.strong Colaborador: 
+			|
+			span #{planilla.nombre}
+		div.float.col-6
+			| 
+			span.strong Código de Planilla: 
+			|
+			span #{planilla.codigo}
+		div.float.col-6
+			| 
+			span.strong Cédula: 
+			|
+			span #{planilla.cedula}
+		
+		
+		div.float.col-6
+			| 
+			span.strong Número de Planilla: 
+			|
+			span #{planilla.id_planilla}
+
+		div.float.col-6
+			| 
+			span.strong Departamento: 
+			|
+			span #{planilla.departamento}
+
+		div.float.col-6
+			| 
+			span.strong Fecha de Planilla: 
+			|
+			span #{planilla.fechain} al #{planilla.fechafin}
+		div.float.col-6
+			| 
+			span.strong Ocupación: 
+			|
+			span #{planilla.ocupacion}
+			
+		div.float.col-6
+			| 
+			span.strong Fecha de Pago: 
+			|
+			span #{planilla.fecha_modificacion}
+		div.float.col-6
+			| 
+			span.strong Número de Empleado: 
+			|
+			span #{planilla.num_colaborador}
+		
+		div.float.col-12
+			| 
+			span.strong Descripción: 
+			|
+			span #{planilla.observaciones}
+	
+	div.mt-1.container
+		div.float.col-6
+			h5 Ingresos:
+			table.table.col-12
+				thead
+					tr.ground
+						th Descripci&oacute;n
+						th Monto
+				tbody
+					each val in cr
+						tr
+							td #{val.descripcion}
+							td.right #{val.monto}
+					tr.ground
+						td Total
+						td.right #{planilla.salario_quincenal_neto}
+		div.float.col-6
+			h5 Deducciones:
+			table.table.col-12
+				thead
+					tr.ground
+						th Descripci&oacute;n
+						th Monto
+				tbody
+					each val in dr
+						tr
+							td #{val.descripcion}
+							td.right #{val.monto}
+				tr.ground
+					td Total
+					td.right #{planilla.total_descuentos}
+
+	div.mt-1.container 
+		h5 Total neto a pagar:
+		h2 $#{planilla.salario_quincenal_neto} - $#{planilla.total_descuentos} = $#{planilla.neto_a_pagar}
+	br
+	br
+	div.container
+		p Recibe Conforme: _____________________________________
+		br
+		p Firma y Cédula: ______________________________________
+		br
+		p Fecha: __________________________________

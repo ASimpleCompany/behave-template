@@ -1,0 +1,168 @@
+doctype html
+head
+meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+style.
+	* {
+	margin: 0;
+	padding: 0;
+	}
+	p{
+		margin-bottom:3px;
+	}
+	html, body {
+	font-weight: 500;
+	font-size:10px;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+	.center{
+	text-align: center;
+	color:#262626;
+	}
+	.right{
+	text-align: right;
+	}	
+	h4{
+	font-size:14px;
+	margin-bottom:5px;
+	}
+	h5{
+	font-size:12px;
+	margin-bottom:5px;
+	}
+
+	.strong {
+	font-weight: bold;
+	}
+	.float{
+	margin:3px;
+	float:left;
+	position: relative;
+	}
+	.col-3{
+		width:33%;
+	}
+	.col-12{
+		width:99.5%;
+	}
+	.col-6{
+		width:48%;
+	}
+	.ground{
+		background-color:#f2f2f2;
+	}
+	.container{
+	width:100%;clear: both; display: table; 
+	}
+	table, td, th {  
+	border: 1px solid #ddd;
+	text-align: left;
+	}
+	table {
+	border-collapse: collapse;
+
+	}
+	th, td {
+	padding: 3px;
+
+	}
+	th{
+		text-align: center;
+	}
+	.mt-1{
+		margin-top:20px;
+	}
+	img{
+		position:absolute;
+		top:-5px;
+		left:3px;
+		width:60px;
+	}
+div
+h4.center INSTITUTO DE CIENCIAS APLICADAS
+h5.center  #{nomina.descripcion}
+h5.center  #{nomina.fechain} / #{nomina.fechafin}
+img(src="https://institutodecienciasaplicadas.com/wp-content/uploads/2019/10/escudo-principal-200x193.png",class='img')
+div
+
+	div.container
+		div.float.col-12
+			table.table.col-12
+				thead
+					tr.ground
+						th ID
+						th Nombre
+						th Cédula
+						th Departamento
+						th Salario 
+							|
+							br 
+							| Pactado
+						th Esta 
+							|
+							br 
+							| Quincena 
+						th Ausencias 
+							|
+							br 
+							| y Tardanzas
+						th Devengado
+						th Seguro 
+							|
+							br 
+							| Social
+						
+						th Seguro 
+							|
+							br 
+							| Educativo
+						th Total 
+							|
+							br 
+							| Deducciones
+						th Otros 
+							|
+							br 
+							| Descuentos
+
+						th Neto 
+							|
+							br 
+							|a Pagar
+						
+				tbody
+					each val in datos
+						tr
+							td #{val.id_planilla}
+							td #{val.nombre}
+							td #{val.cedula}
+							td #{val.departamento}
+							td.right #{val.salario_mensual_pactado}
+							td.right #{val.salario_quincenal_neto}
+							td.right #{val.ausentismo_tardanza}
+							td.right #{val.devengado}
+							td.right #{val.deduccion_seg_social}
+							td.right #{val.deduccion_seg_educativo}
+							td.right #{val.total_descuentos}
+							td.right #{val.otros_descuentos}
+							td.right #{val.neto_a_pagar}
+				tr.ground
+					td ******
+					td ******
+					td ******
+					td Totales
+					td.right #{totales.salario_mensual_pactado}
+					td.right #{totales.salario_quincenal_neto}
+					td.right #{totales.ausentismo_tardanza}
+					td.right #{totales.devengado}
+					td.right #{totales.deduccion_seg_social}
+					td.right #{totales.deduccion_seg_educativo}
+					td.right #{totales.total_descuentos}
+					td.right #{totales.otros_descuentos}
+					td.right #{totales.neto_a_pagar}
+
+	div.mt-1.container 
+		p Observaciones: #{nomina.observacion}
+	div.container
+		p Confeccionado por: #{nomina.nombre},             Autorizado Por: _______________________________________
+		
