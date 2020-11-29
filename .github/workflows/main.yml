@@ -1,21 +1,15 @@
-name: Docker Image CI
-
-on: [push]
-
+name: Devops
+on:
+   push:
+      branches:
+      - master
+   pull_request:
+      branches:
+      - master
 jobs:
-
-  ci:
-
-    runs-on: ubuntu-latest    
-
-    steps:
-    - uses: actions/checkout@v1
-
-    - name: Setup ...
-      run: CONTAINER_NAME=behave
-
-    - name: Building image ...
-      run: docker build -t $CONTAINER_NAME  .
-
-    - name: Run ...
-      run: docker container run $CONTAINER_NAME behave
+   build:
+      runs-on: ubuntu-latest
+      steps:
+      -  uses: actions/checkout@v2
+      -  name: Run docker-compose stack
+         run: docker-compose -f docker-compose.yml up -d
