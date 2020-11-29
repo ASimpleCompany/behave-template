@@ -6,4 +6,4 @@ echo " "
 echo " === CALIDAD DE SOFTWARE: DEVOPS / PRUEBAS AUTOMATIZADAS ==="
 echo " "
 
-exec behave 
+#exec behave 

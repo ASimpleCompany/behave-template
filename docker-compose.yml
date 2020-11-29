@@ -3,5 +3,5 @@ services:
    app:
       build:
          context: .
-      image: behave
-      command: bash entrypoint.sh
+      image: app
+      container_name: test

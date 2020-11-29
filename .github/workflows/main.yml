@@ -11,7 +11,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       -  uses: actions/checkout@v2
-      -  name: Run docker-compose stack
-         run: docker-compose -f docker-compose.yml up -d
-      -  name: Test with Behave
-         run: docker-compose exec app python3 -m behave 
+
+      -  name: Stage-1
+         run: docker build -t app  .
+
+      -  name: Stage-2
+         run: docker container run app behave
