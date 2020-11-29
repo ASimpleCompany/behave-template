@@ -13,8 +13,14 @@ jobs:
       steps:
       -  uses: actions/checkout@v2
 
-      -  name: Stage 1 > Building Python image
+      -  name: Stage 00 > Create docker-compose stack
+         run: docker-compose up -d
+
+      -  name: Stage 01 > Building Python image
          run: docker build -t app  .
 
-      -  name: Stage 2 > Testing with Behave
+      -  name: Stage 02 > Testing with Behave
          run: docker container run app behave
+
+      -  name: Stage End > Destroy docker-compose stack
+         run: docker-compose down; docker container rm -f $(docker container list -qa); docker image rmi $(docker image list -qa); docker system prune --force --volumes; 
