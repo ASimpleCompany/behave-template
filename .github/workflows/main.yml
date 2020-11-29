@@ -4,11 +4,11 @@ on: [push]
 
 jobs:
 
-build:
+  build:
 
-runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
 
-  steps:
+    steps:
     - uses: actions/checkout@v1
     - name: Build the docker-compose stack
-    run: bash entrypoint.sh  
+      run: bash entrypoint
