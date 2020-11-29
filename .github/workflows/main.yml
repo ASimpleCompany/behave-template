@@ -23,4 +23,4 @@ jobs:
          run: docker container run app behave
 
       -  name: Stage End > Destroy docker-compose stack
-         run: docker-compose down; docker container rm -f $(docker container list -qa); docker image rmi $(docker image list -qa); docker system prune --force --volumes; 
+         run: docker-compose down
