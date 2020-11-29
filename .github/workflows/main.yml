@@ -1,6 +1,6 @@
+name: Behave
+
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
   push:
     branches:
       - master
@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  behave:
+  step-1:
     runs:
       using: 'docker'
       image: 'Dockerfile'
