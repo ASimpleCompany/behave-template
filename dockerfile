@@ -45,5 +45,3 @@ ENV        REQUIREMENTS_PATH  /behave/features/steps/requirements.txt
 
 COPY . .
 RUN python3 -m pip install -r requirements.txt
-
-#ENTRYPOINT ["./main.sh"]

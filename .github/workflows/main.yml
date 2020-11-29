@@ -12,8 +12,8 @@ jobs:
       steps:
       -  uses: actions/checkout@v2
 
-      -  name: Stage-1
+      -  name: Stage-1 > Building Python image
          run: docker build -t app  .
 
-      -  name: Stage-2
+      -  name: Stage-2 > Testing with Behave
          run: docker container run app behave
