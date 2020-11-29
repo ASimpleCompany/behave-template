@@ -10,5 +10,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the docker-compose stack
-      run: bash entrypoint
+    - name: Ejecutar pruebas
+      run: bash entrypoint.sh
