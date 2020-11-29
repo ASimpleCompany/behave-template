@@ -1,7 +1,16 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
-runs:
-  using: docker
-  image: dockerfile
+jobs:
+  behave:
+    runs:
+      using: 'docker'
+      image: 'Dockerfile'
+      run: "bash entrypoint.sh"
