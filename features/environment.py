@@ -13,12 +13,13 @@ def before_all(context):
     chromeOptions.headless = False
     #chromeOptions.headless = True
 
-    if os == 'Linux':
-        context.driver = webdriver.Chrome(executable_path='./chromedriver',chrome_options=chromeOptions)
+    # if os == 'Linux':
+    #     context.driver = webdriver.Chrome(executable_path='./chromedriver',chrome_options=chromeOptions)
 
-    if os == 'Darwin':
-        context.driver = webdriver.Chrome(ChromeDriverManager().install())      
-        
+    # if os == 'Darwin':
+    #     context.driver = webdriver.Chrome(ChromeDriverManager().install()) 
+
+    context.driver = webdriver.Chrome(ChromeDriverManager().install())    
     context.driver.implicitly_wait(10)
 
 
