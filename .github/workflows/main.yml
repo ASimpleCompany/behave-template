@@ -4,9 +4,10 @@ on:
   push:
     branches: master
 
-# action runner (golang:latest image)
-runs:
-  using: 'docker'
-  image: 'dockerfile'
-  env:
-    GO111MODULE: 'on'
+jobs:
+  # action runner (golang:latest image)
+  runs:
+    using: 'docker'
+    image: 'dockerfile'
+    env:
+      GO111MODULE: 'on'
