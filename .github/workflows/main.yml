@@ -8,10 +8,6 @@ on:
     branches:
       - master
 
-jobs:
-  step-1:
-  - name: GitHub Docker Action
-    uses: matootie/github-docker@v3.1.0
-
-  - name: Print Image URL
-    run: echo ${{ steps.publish.outputs.imageURL }}    
+- name: Dockerize-Actions
+  uses: NishkarshRaj/Dockerize-Actions@1.0
+  
