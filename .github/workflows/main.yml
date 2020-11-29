@@ -1,4 +1,5 @@
 name: Devops
+# https://github.community/t/how-to-use-docker-compose-with-github-actions/16850/5
 on:
    push:
       branches:
@@ -12,8 +13,8 @@ jobs:
       steps:
       -  uses: actions/checkout@v2
 
-      -  name: Stage-1 > Building Python image
+      -  name: Stage 1 > Building Python image
          run: docker build -t app  .
 
-      -  name: Stage-2 > Testing with Behave
+      -  name: Stage 2 > Testing with Behave
          run: docker container run app behave
