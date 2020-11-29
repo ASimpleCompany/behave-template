@@ -10,7 +10,8 @@ on:
 
 jobs:
   step-1:
-    runs:
-      using: 'docker'
-      image: 'Dockerfile'
-      run: "bash entrypoint.sh"
+  - name: GitHub Docker Action
+    uses: matootie/github-docker@v3.1.0
+
+  - name: Print Image URL
+    run: echo ${{ steps.publish.outputs.imageURL }}    
