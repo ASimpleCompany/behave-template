@@ -44,8 +44,8 @@ services:
     image: node
     container_name: express--api
     working_dir: /home/node/api
-    volumes: #<host>:<container> #from here to there
-      - ./api/:/home/node/api
+    # volumes: #<host>:<container> #from here to there
+    #   - ./api/:/home/node/api
     ports:
       - 5000:5000
     command: 'npm start'
@@ -65,8 +65,8 @@ services:
       - db
     networks:
       - internal
-    volumes: #<host>:<container> #from here to there
-      - ./dashboard/:/dashboard
+    # volumes: #<host>:<container> #from here to there
+    #   - ./dashboard/:/dashboard
     environment: #https://github.com/facebook/create-react-app/issues/8688 (control + F: CI=true)
       - CI=true
 
