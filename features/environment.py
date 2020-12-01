@@ -19,7 +19,6 @@ def before_feature(context, feature):
     
     CHROME_EXE_PATH='./chromedriver'
     
-    #aqui es el error
     context.driver = webdriver.Chrome(
     executable_path=CHROME_EXE_PATH,
     chrome_options=chrome_options)
